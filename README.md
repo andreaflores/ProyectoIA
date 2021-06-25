@@ -1,1 +1,2 @@
-# ProyectoIA
+# Proyecto IA
+## Max min Reversi
