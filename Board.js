@@ -1,3 +1,6 @@
+import {Matriz} from './Matriz.js';
+import {Player} from './Player.js';
+
 class Board {
     constructor(players, existentBoard) {
         this.size = 8;
@@ -16,6 +19,7 @@ class Board {
     }
 
     copyBoard() {
+
         var tempPlayers = [];
         for (var i = this.players.length - 1; i >= 0; i--) {
             tempPlayers[i] = new Player(this.players[i].name, this.players[i].number, this.players[i].isIa);
@@ -304,3 +308,5 @@ class Board {
         otherPlayer.qtdPieces -= pieces.length;
     }
 }
+
+export {Board};

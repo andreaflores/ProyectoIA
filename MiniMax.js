@@ -66,3 +66,5 @@ class MiniMax {
         }
     }
 }
+
+export {MiniMax};

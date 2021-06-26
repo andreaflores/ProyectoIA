@@ -19,16 +19,23 @@ class Matriz {
         */
         this.generateMatriz();
     }
+
     generateMatriz() {
+
+        //console.log("Estado " + estado);
         //var recibe = "22222222 22222222 22222222 22210222 22201222 22222222 22222222 22222222"
         
-        var recibe = "2222222222222222222222222221022222201222222222222222222222222222";
+        const recibe = "2222222222222222222222222221022222201222222222222222222222222222";
 
         //var recibe = "2222222222210222222101122221022222110222212202221222022222220222"
         //             1234567812345678123456781234567812345678123456781234567812345678
         //             |       |       |       |       |       |       |       |        
-        
-        var space = recibe.replaceAll('2', '2 ').replaceAll('1', '1 ').replaceAll('0', '0 ');
+        var space = "";
+
+        for(var i = 0; i < recibe.length; i++){
+            space += recibe[i] + " ";
+        }
+
         var position = space.split(' ');
 
         var matriz = [];
@@ -45,10 +52,14 @@ class Matriz {
                 }
             }
         }
-        this.matriz = matriz;
+        this.matriz = matriz;        
     }
+
     separate(position) {
         var number = position.shift();
         return number;
     }
+   
 }
+
+export {Matriz};

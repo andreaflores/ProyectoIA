@@ -1,6 +1,8 @@
 "use strict"
+import {Player} from './Player.js';
+import {Board} from './Board.js';
 
-var players, actualPlayer, board;
+var players, actualPlayer, board, mov;
 
 startGame();
 
@@ -12,7 +14,7 @@ function startGame() {
     actualPlayer = 1;
     board = new Board(players);
 
-    renderBoard(board.board);
+    return renderBoard(board.board);
 }
 
 function renderBoard(board) {
@@ -21,7 +23,7 @@ function renderBoard(board) {
             var piece = board[x][y] ? board[x][y] : "";
         }
     }
-    play();
+    return play();
 }
 
 function play() {
@@ -30,17 +32,15 @@ function play() {
             setTimeout(function(){
                 try {
                     var move = players[actualPlayer].getMove(board); 
-                    console.log("Movimiento a realizar " + move.x + ", " + move.y) 
-
-                    let body = document.getElementsByTagName("body")[0];
-                    body.innerHTML = move.y + "" + move.x;
-
-                    //document.getElementById("log").innerHTML= move.y + "" + move.x;                    
-                
+                    console.log("Movimiento a realizar " + move.x + ", " + move.y);
+                    mov = move.y + "" + move.x
                 } catch (error) {
                     // algun error en el movimiento   
                 }
             }, 1000);
         }
     }
+
 }
+
+export {startGame, mov};

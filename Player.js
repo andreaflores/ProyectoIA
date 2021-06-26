@@ -1,3 +1,5 @@
+import {MiniMax} from './MiniMax.js';
+
 class Player {
     constructor(name, number, isIa) {
         this.name = name;
@@ -15,3 +17,4 @@ class Player {
     }
 }
 
+export {Player};
